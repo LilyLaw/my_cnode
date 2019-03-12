@@ -1,0 +1,64 @@
+.pageWrap{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#logo{
+	color: #fff;
+	margin-bottom: 0;
+	text-align: center;
+}
+.wrap{
+	max-width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.indexSider{
+	border-right: 1px solid #ccc;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+}
+.headerDivider{
+   	height: 2.9em;
+   	margin: 0;
+}
+.navbox{
+	display: flex;
+    height: 64px;
+    align-items: center;
+}
+
+.xsNav{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
+}
+.main{
+	flex: 1;
+}
+.main .wrap{
+	border: 1px solid #ccc;
+	border-top: none;
+}
+#indexMenu{
+	border-right: none;
+	text-align: center;
+}
+#indexMenu .ant-menu-item-selected{
+	border-right: 3px solid #1890ff;
+}
+#indexXSMenu{
+	display: flex;
+}
+#indexXSMenu li{
+	flex: 1;
+	text-align: center;
+}
+.indexList{
+	padding: 0 1em;
+}
+.indexList p{
+	margin: 0;
+}
