@@ -14,6 +14,9 @@
 	margin: 0 auto;
 	overflow: hidden;
 }
+.wrap img{
+	max-width: 100%;
+}
 .indexSider{
 	border-right: 1px solid #ccc;
 	padding-bottom: 9999px;
@@ -60,5 +63,25 @@
 	padding: 0 1em;
 }
 .indexList p{
+	margin: 0;
+}
+.lll-list-item{
+	flex-direction: column;
+}
+.user-avatar{
+	display: block;
+	margin: 1em auto;
+	width: 8em;
+	height: auto;
+}
+.user-basicinfo{
+	text-align: center;
+	padding-bottom: 0.5em;
+}
+.user-basicinfo .ant-col-md-8{
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+.user-recent p{
 	margin: 0;
 }

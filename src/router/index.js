@@ -14,6 +14,9 @@ class RouterIndex extends Component{
 				<Route path="/" exact render={()=>(
 						<Redirect to="/index/all" />
 				)} />
+				<Route path="/index" exact render={()=>(
+						<Redirect to="/index/all" />
+				)} />
 				<Route path="/index/:id" component={Index}/>
 				<Route path="/book" component={Book}/>
 				<Route path="/about" component={About}/>
