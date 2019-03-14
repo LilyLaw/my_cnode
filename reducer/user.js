@@ -1,4 +1,7 @@
-function user(state,action){
+function user(
+	state={
+		loading:true
+	},action){
 	switch(action.type){
 		default: return state;
 	}
