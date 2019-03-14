@@ -5,6 +5,8 @@ import IndexList from './indexList.js';
 
 class Index extends Component{
 	render(){
+		// console.log(this.props)
+		let tab = this.props.match.params.id;
 		return (
 			<Row className="wrap">
 				<Col md={6} xs={0} className="indexSider">
@@ -14,7 +16,7 @@ class Index extends Component{
 					<IndexMenu id="indexXSMenu" mode="horizontal"></IndexMenu>
 				</Col>
 				<Col className="indexList" md={18} xs={24}>
-					<IndexList></IndexList>
+					<IndexList tab={tab}></IndexList>
 				</Col>
 			</Row>
 		)
