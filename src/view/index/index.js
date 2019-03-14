@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Row , Col} from 'antd';
+import { Row , Col } from 'antd';
 import IndexMenu from './indexMenu.js';
 import IndexList from './indexList.js';
 
 class Index extends Component{
 	render(){
-		// console.log(this.props)
 		let tab = this.props.match.params.id;
 		return (
 			<Row className="wrap">
@@ -17,6 +16,7 @@ class Index extends Component{
 				</Col>
 				<Col className="indexList" md={18} xs={24}>
 					<IndexList tab={tab}></IndexList>
+					
 				</Col>
 			</Row>
 		)

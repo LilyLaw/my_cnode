@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { List , Avatar} from 'antd';
+import { List , Avatar , Pagination} from 'antd';
 import { Link } from 'react-router-dom';
 import TxtTag from '../common/txtTag.js';
 import { connect } from 'react-redux';
@@ -11,23 +11,29 @@ class IndexList extends Component{
 		this.state={
 			page:1
 		}
-		this.getData(this.props.tab);
+		this.getData(this.props.tab,this.state.page);
 	}
 
-	shouldComponentUpdate(nextProps){
+	shouldComponentUpdate(nextProps,nextState){
+		if(this.state.page!== nextState.page){
+			this.getData(nextProps.tab,nextState.page);
+			return false;
+		}
+
 		if(this.props.tab !== nextProps.tab){	// 切换时才更新
-			this.getData(nextProps.tab);
+			this.state.page = 1;
+			this.getData(nextProps.tab,1);
 			return false;
 		}
 		return true;
 	}
 
-	getData(tab){
+	getData(tab,page){
 		this.props.dispatch((dispatch)=>{
 			dispatch({
 				type:"LIST_UPDATE"
 			});
-			axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
+			axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=10`)
 				.then((res)=>{
 					dispatch({
 						type:"LIST_UPDATE_SUCCESS",
@@ -46,10 +52,17 @@ class IndexList extends Component{
 
 	render(){
 		let {loading,data} = this.props;
+		let pagination = {
+			current:this.state.page,
+			pageSize:10,
+			total:1000,
+			onChange:((current)=>{
+				this.setState({page:current});
+				this.getData(this.props.tab,current);
+			})
+		}
 		return (
-			<List
-				loading = {loading}
-				dataSource = {data}
+			<List loading = {loading} dataSource = {data} pagination = {loading?false:pagination}
 				renderItem={
 					item => (
 						<List.Item
@@ -58,15 +71,11 @@ class IndexList extends Component{
 							<List.Item.Meta
 								avatar = {<Avatar src={item.author.avatar_url} />}
 								title = {<div>
-											<TxtTag data={item}/>
-											<Link to={"/details/"+item.id}>{item.title}</Link>
-										</div>}
-								description = {<p><Link to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.last_reply_at.split("T")[0]}</p>}
-							/>
-						</List.Item>
-					)
-				}
-			/>
+										<TxtTag data={item}/>
+										<Link to={"/details/"+item.id}>{item.title}</Link>
+									</div>}
+								description = {<p><Link to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.last_reply_at.split("T")[0]}</p>}/>
+						</List.Item>)}/>
 		)
 	}
 }
