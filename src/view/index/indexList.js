@@ -8,7 +8,6 @@ import axios from 'axios';
 class IndexList extends Component{
 	constructor(arg){
 		super(arg);
-		let {tab} = this.props;
 		this.state={
 			page:1
 		}
@@ -16,7 +15,6 @@ class IndexList extends Component{
 	}
 
 	shouldComponentUpdate(nextProps){
-		console.log(nextProps);
 		if(this.props.tab !== nextProps.tab){	// 切换时才更新
 			this.getData(nextProps.tab);
 			return false;
@@ -31,7 +29,6 @@ class IndexList extends Component{
 			});
 			axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
 				.then((res)=>{
-					console.log(res);
 					dispatch({
 						type:"LIST_UPDATE_SUCCESS",
 						data:res.data

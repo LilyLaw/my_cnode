@@ -4,6 +4,7 @@ import { Avatar , Card , List} from 'antd';
 class UserInfoList extends Component{
 	render(){
 		return <Card
+			loading={this.props.loading}
 			title={this.props.title}
 			type="inner">
 			<List
@@ -15,8 +16,8 @@ class UserInfoList extends Component{
 								className = "user-recent"
 						        avatar={<Avatar src={item.author.avatar_url} />}
 						        title={ <p>
-						        			<a>{item.author.loginname}</a>
-						        			<a href={"/book/"+item.id} style={{marginLeft:"2em",fontSize:"1.2em",fontWeight:"normal"}}>{item.title}</a>
+						        			<a href={"/user/"+item.author.loginname}>{item.author.loginname}</a>
+						        			<a href={"/details/"+item.id} style={{marginLeft:"2em",fontSize:"1.2em",fontWeight:"normal"}}>{item.title}</a>
 											<span style={{float:"right"}}>最后回复于{item.last_reply_at.split("T")[0]}</span>
 					        			</p>}
 						    />

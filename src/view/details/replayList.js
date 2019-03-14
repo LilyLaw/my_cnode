@@ -6,6 +6,7 @@ class ReplayList extends Component{
 	render(){
 		let {replies,reply_count} = this.props;
 		return <Card
+			loading = {this.props.loading}
 			title={reply_count+"条回复"}
 			type = "inner">
 			<List
