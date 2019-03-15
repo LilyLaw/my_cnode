@@ -44,9 +44,9 @@ class User extends Component{
 			<div className="wrap">
 				<Avatar src={data.avatar_url} className="user-avatar"/>
 				<Row className="user-basicinfo">
-					<Col md={8}>用户名：<a>{data.loginname}</a></Col>
-					<Col md={8}>积分：<a>{data.score}</a></Col>
-					<Col md={8}>注册时间：<a>{data.create_at.split("T")[0]}</a></Col>
+					<Col md={8}>用户名：<span style={{color:"#1890ff"}}>{data.loginname}</span></Col>
+					<Col md={8}>积分：<span style={{color:"#1890ff"}}>{data.score}</span></Col>
+					<Col md={8}>注册时间：<span style={{color:"#1890ff"}}>{data.create_at.split("T")[0]}</span></Col>
 				</Row>
 				<UserInfoList loading={loading} data={data.recent_topics} title={"最近发表"}/>
 				<UserInfoList loading={loading} data={data.recent_replies} title={"最近回复"}/>

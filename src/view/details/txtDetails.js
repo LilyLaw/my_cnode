@@ -11,7 +11,7 @@ class TxtDetails extends Component{
 			<div>
 				<TxtTag data={data}></TxtTag>
 				<Avatar src={data.author.avatar_url}></Avatar>
-				<Link to={"/user/"+data.author.loginname}>{data.author.loginname}</Link>
+				<Link  target="_blank" to={"/user/"+data.author.loginname}>{data.author.loginname}</Link>
 				发表于：{data.create_at.split("T")[0]}
 			</div>
 		</div>);

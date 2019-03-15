@@ -20,7 +20,7 @@ class ReplayList extends Component{
 							extra={item.ups.length>0?"有"+item.ups.length+"点赞":""}>
 							<List.Item.Meta
 								avatar = {<Avatar src={item.author.avatar_url}/>}
-								description = { <p><Link to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.create_at.split("T")[0]}</p> }
+								description = { <p><Link target="_blank" to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.create_at.split("T")[0]}</p> }
 							/>
 							<div dangerouslySetInnerHTML = {{__html:item.content}}></div>
 						</List.Item>

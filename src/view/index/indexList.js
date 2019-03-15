@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { List , Avatar , Pagination} from 'antd';
+import { List , Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import TxtTag from '../common/txtTag.js';
 import { connect } from 'react-redux';
@@ -21,7 +21,9 @@ class IndexList extends Component{
 		}
 
 		if(this.props.tab !== nextProps.tab){	// 切换时才更新
-			this.state.page = 1;
+			this.setState({
+				page:1
+			});
 			this.getData(nextProps.tab,1);
 			return false;
 		}
@@ -72,9 +74,9 @@ class IndexList extends Component{
 								avatar = {<Avatar src={item.author.avatar_url} />}
 								title = {<div>
 										<TxtTag data={item}/>
-										<Link to={"/details/"+item.id}>{item.title}</Link>
+										<Link  target="_blank" to={"/details/"+item.id}>{item.title}</Link>
 									</div>}
-								description = {<p><Link to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.last_reply_at.split("T")[0]}</p>}/>
+								description = {<p><Link  target="_blank" to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>发表于：{item.last_reply_at.split("T")[0]}</p>}/>
 						</List.Item>)}/>
 		)
 	}

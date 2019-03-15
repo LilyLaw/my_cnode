@@ -16,7 +16,6 @@ class Index extends Component{
 				</Col>
 				<Col className="indexList" md={18} xs={24}>
 					<IndexList tab={tab}></IndexList>
-					
 				</Col>
 			</Row>
 		)
