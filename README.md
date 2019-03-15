@@ -69,4 +69,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## 配置less
 
-https://blog.csdn.net/qwe502763576/article/details/83242823
+https://www.jianshu.com/p/d5dd8b108461
